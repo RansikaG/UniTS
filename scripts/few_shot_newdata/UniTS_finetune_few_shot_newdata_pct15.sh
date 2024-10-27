@@ -5,8 +5,8 @@ exp_name=fewshot_newdata_finetune_pct15
 random_port=$((RANDOM % 9000 + 1000))
 # Path to the supervised checkpoint
 # get supervised checkpoint: scripts/supervised/UniTS_supervised_x64.sh
-ckpt_path=newcheckpoints/units_x64_supervised_checkpoint.pth
-torchrun --nnodes 1 --master_port $random_port run.py \
+ckpt_path=/home/ransika/UniTS/newcheckpoints/units_x64_supervised_checkpoint.pth
+torchrun --nnodes 1 --master_port $random_port /home/ransika/UniTS/run.py \
   --is_training 1 \
   --fix_seed 2021 \
   --model_id $exp_name \
@@ -28,5 +28,5 @@ torchrun --nnodes 1 --master_port $random_port run.py \
   --debug $wandb_mode \
   --project_name $project_name \
   --pretrained_weight $ckpt_path \
-  --task_data_config_path data_provider/fewshot_new_task.yaml
+  --task_data_config_path /home/ransika/UniTS/data_provider/fewshot_new_task.yaml
 

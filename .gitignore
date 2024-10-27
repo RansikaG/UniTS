@@ -159,3 +159,6 @@ data_loader_all.py
 
 checkpoints
 logs
+wandb
+newcheckpoints
+*.ts

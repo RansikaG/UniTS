@@ -1,0 +1,15 @@
+task_dataset:
+  Web_Traffic:
+    task_name: classification
+    dataset_name: cstnet
+    dataset: traffic
+    data: UEA
+    root_path: /home/ransika/UniTS/traffic_data/cstnet # the root path of the dataset
+    features: M
+    embed: timeF
+    seq_len: 128 # the length of the input sequence
+    label_len: 0 # the length of the label sequence, 0 for classification
+    pred_len: 0 # the length of the predicted sequence, 0 for classification
+    enc_in: 3 # the number of variable numbers
+    num_class: 108 # the number of classes
+    c_out: None # the output variable numbers, 0 for classification
