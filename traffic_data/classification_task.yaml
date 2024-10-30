@@ -4,12 +4,24 @@ task_dataset:
     dataset_name: cstnet
     dataset: traffic
     data: UEA
-    root_path: /home/ransika/UniTS/traffic_data/cstnet # the root path of the dataset
+    root_path: /home/ransika/UniTS/traffic_data/cstnet/ # the root path of the dataset
     features: M
     embed: timeF
-    seq_len: 128 # the length of the input sequence
+    seq_len: 256 # the length of the input sequence
     label_len: 0 # the length of the label sequence, 0 for classification
     pred_len: 0 # the length of the predicted sequence, 0 for classification
-    enc_in: 3 # the number of variable numbers
-    num_class: 108 # the number of classes
+    enc_in: 4 # the number of variable numbers
+    num_class: 12 # the number of classes
     c_out: None # the output variable numbers, 0 for classification
+#  CLS_Handwriting:
+#    task_name: classification
+#    dataset: Handwriting
+#    data: UEA
+#    embed: timeF
+#    root_path: /home/ransika/units_data/dataset/Handwriting
+#    seq_len: 152
+#    label_len: 0
+#    pred_len: 0
+#    enc_in: 3
+#    num_class: 26
+#    c_out: None

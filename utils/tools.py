@@ -22,6 +22,13 @@ def adjust_learning_rate(optimizer, epoch, base_lr, args):
         else:
             lr_adjust = {epoch: base_lr *
                          (0.9 ** (((epoch-args.prompt_tune_epoch)) // 1))}
+    elif args.lradj == 'one_cycle':
+        max_lr = base_lr * 10
+        phase = epoch / (args.train_epochs // 2)
+        if phase <= 1:
+            lr_adjust = {epoch: base_lr + (max_lr - base_lr) * phase}
+        else:
+            lr_adjust = {epoch: max_lr - (max_lr - base_lr) * (phase - 1)}
     elif args.lradj == 'finetune_anl':
         k = 1
         lr_adjust = {epoch: base_lr / (2 ** ((epoch) // k))}
