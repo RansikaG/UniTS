@@ -20,8 +20,8 @@ def adjust_learning_rate(optimizer, epoch, base_lr, args):
         if epoch <= args.prompt_tune_epoch:
             lr_adjust = {epoch: base_lr}
         else:
-            lr_adjust = {epoch: base_lr / 5 *
-                         (0.5 ** (((epoch-args.prompt_tune_epoch)) // 1))}
+            lr_adjust = {epoch: base_lr *
+                         (0.9 ** (((epoch-args.prompt_tune_epoch)) // 1))}
     elif args.lradj == 'finetune_anl':
         k = 1
         lr_adjust = {epoch: base_lr / (2 ** ((epoch) // k))}
